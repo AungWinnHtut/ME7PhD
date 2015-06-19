@@ -13,3 +13,11 @@
    13  git push -u origin master
    14  history
    15  history > history.txt
+   16  cat history
+   17  cat history.txt
+   18  git status
+   19  git add history.txt
+   20  git status
+   21  git commit -m "adding a history file"
+   22  git push -u origin master
+   23  history > history.txt
