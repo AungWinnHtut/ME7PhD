@@ -1,0 +1,15 @@
+    1  cd d:/students/me7phd/gitrepo
+    2  ls -l
+    3  git init
+    4  git status
+    5  git add --all
+    6  git status
+    7  git commit -m "adding three c files"
+    8  git remote -v
+    9  git remote add origin https://github.com/AungWinnHtut/ME7PhD.git
+   10  git remote -v
+   11  git pull origin master
+   12  git status
+   13  git push -u origin master
+   14  history
+   15  history > history.txt
