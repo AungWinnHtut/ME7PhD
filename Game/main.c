@@ -27,6 +27,7 @@
 int funRand(int MaxRand);
 int funRand2(int max);
 void ran(void);
+int funRand(int iRandMax);
 int main()
 {
 
@@ -52,17 +53,5 @@ int main()
 	return 0;
 }
 
-int funRand(int MaxRand)
-{
-	/*
-		To use funRand() 
-		1) insert following code of line in calling function
-			srand((unsigned) time(&t));
-		2) supply Maximum value for Random number upper boundary
-		3) Result will be 0 to Maximum-1
-	*/
-	int iRandOut=0;	
-	iRandOut = rand() % MaxRand;	
-	return iRandOut;
-}
+
 
