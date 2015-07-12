@@ -27,7 +27,11 @@
 int funRand(int MaxRand);
 int funRand2(int max);
 void ran(void);
-int funRand(int iRandMax);
+/*funRand.c*/
+int funRand(int iRandMax); 
+
+
+
 int main()
 {
 
@@ -35,6 +39,7 @@ int main()
 	int dx=0,dy=0;
 	int i=0; 
 	time_t t;
+	char user_input_key;
 	srand((unsigned) time(&t));
 	ux=funRand(641);
 	uy=funRand(481);
@@ -46,10 +51,11 @@ int main()
 	printf("door x = %d\n",dx);
 	printf("door y = %d\n",dy);   	
    
-   	while(1)
-   	{
-   		
-   	}
+   	do{
+
+   		user_input_key = _getch();
+   		printf("%c %d %x\n",user_input_key,user_input_key,user_input_key);
+   	}while(user_input_key!=27);
 	return 0;
 }
 
