@@ -37,6 +37,7 @@ int main()
 
 	int ux=0,uy=0; /*user locatrion var*/
 	int dx=0,dy=0;
+	int level = 1;
 	int i=0; 
 	time_t t;
 	char user_input_key;
@@ -48,14 +49,21 @@ int main()
 	dx=funRand(641);
 	dy=funRand(481);
 
-	printf("user x = %d\n",ux);
-	printf("user y = %d\n",uy);
-	printf("door x = %d\n",dx);
-	printf("door y = %d\n",dy);   	
+		
    
    	do{
+   		system("cls");
+   		printf("user x = %d\n",ux);
+		printf("user y = %d\n",uy);
+		printf("door x = %d\n",dx);
+		printf("door y = %d\n",dy);   
+		printf("level = %d\n",level);
 
    		user_input_key = _getch();
+   		
+   		if(user_input_key == -32)
+	    	user_input_key = _getch();
+
    		/*left*/
    		if(user_input_key==75)
    		{
@@ -87,6 +95,13 @@ int main()
    			if(ans=='y' || ans=='Y') exit(0);
    			else user_input_key=0; /*reset input*/
    		}
+
+
+   		if(ux==dx && uy==dy)
+   		{
+   			level++;
+   		}
+
 
    	}while(user_input_key!=27);
 	return 0;
