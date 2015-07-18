@@ -40,6 +40,8 @@ int main()
 	int i=0; 
 	time_t t;
 	char user_input_key;
+	char ans;
+
 	srand((unsigned) time(&t));
 	ux=funRand(641);
 	uy=funRand(481);
@@ -54,7 +56,38 @@ int main()
    	do{
 
    		user_input_key = _getch();
-   		printf("%c %d %x\n",user_input_key,user_input_key,user_input_key);
+   		/*left*/
+   		if(user_input_key==75)
+   		{
+   			ux--;
+   			if(ux<0) ux=640;   			
+   		}
+   		/*right*/
+   		if(user_input_key==77)
+   		{
+   			ux++;
+   			if(ux>640) ux=0; 			
+   		}
+   		/*up*/
+   		if(user_input_key==72)
+   		{
+   			uy--;
+   			if(uy<0) uy=480;   						
+   		}
+   		/*down*/
+   		if(user_input_key==80)
+   		{
+   			uy++;
+   			if(uy>480) uy=0;  			
+   		}
+   		if(user_input_key==27)
+   		{
+   			printf("are you sure you want to exit ? (y/n)");   
+   			ans = getchar();
+   			if(ans=='y' || ans=='Y') exit(0);
+   			else user_input_key=0; /*reset input*/
+   		}
+
    	}while(user_input_key!=27);
 	return 0;
 }
