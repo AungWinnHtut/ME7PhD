@@ -52,49 +52,27 @@ int main()
 		
    
    	do{
-   		system("cls");
-   		printf("user x = %d\n",ux);
-		printf("user y = %d\n",uy);
-		printf("door x = %d\n",dx);
-		printf("door y = %d\n",dy);   
-		printf("level = %d\n",level);
+   		 system("cls");
+   		 printf("user x = %d\n",ux);
+		    printf("user y = %d\n",uy);
+		    printf("door x = %d\n",dx);
+		    printf("door y = %d\n",dy);   
+		    printf("level = %d\n",level);
 
-   		user_input_key = _getch();
+   		 user_input_key = _getch();
    		
-   		if(user_input_key == -32)
-	    	user_input_key = _getch();
+   		 if(user_input_key == -32)
+	    	   user_input_key = _getch();
 
-   		/*left*/
-   		if(user_input_key==75)
-   		{
-   			ux--;
-   			if(ux<0) ux=640;   			
-   		}
-   		/*right*/
-   		if(user_input_key==77)
-   		{
-   			ux++;
-   			if(ux>640) ux=0; 			
-   		}
-   		/*up*/
-   		if(user_input_key==72)
-   		{
-   			uy--;
-   			if(uy<0) uy=480;   						
-   		}
-   		/*down*/
-   		if(user_input_key==80)
-   		{
-   			uy++;
-   			if(uy>480) uy=0;  			
-   		}
-   		if(user_input_key==27)
-   		{
-   			printf("are you sure you want to exit ? (y/n)");   
-   			ans = getchar();
-   			if(ans=='y' || ans=='Y') exit(0);
-   			else user_input_key=0; /*reset input*/
-   		}
+         switch(user_input_key)
+         {
+            case 75: ux--;if(ux<0) ux=640; break; /*Left*/
+            case 77: ux++;if(ux>640) ux=0; break; /*Right*/
+            case 72: uy--;if(uy<0) ux=480; break; /*Up*/
+            case 80: uy++;if(uy>480) ux=0; break; /*Down*/
+            case 27: printf("are you sure to exit ? y/n"); ans=getchar();
+         }
+
 
 
    		if(ux==dx && uy==dy)
