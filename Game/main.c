@@ -37,17 +37,23 @@ int main()
 
 	int ux=0,uy=0; /*user locatrion var*/
 	int dx=0,dy=0;
+   int t1x=0,t1y=0;
 	int level = 1;
 	int i=0; 
+   int j=0;
 	time_t t;
 	char user_input_key;
 	char ans;
+   int life=100;
 
 	srand((unsigned) time(&t));
 	ux=funRand(641);
 	uy=funRand(481);
 	dx=funRand(641);
 	dy=funRand(481);
+
+   t1x=funRand(641);
+   t1y=funRand(481);
 
 		
    
@@ -56,8 +62,16 @@ int main()
    		 printf("user x = %d\n",ux);
 		    printf("user y = %d\n",uy);
 		    printf("door x = %d\n",dx);
-		    printf("door y = %d\n",dy);   
+		    printf("door y = %d\n",dy); 
+          printf("trap1 x = %d\n",t1x);
+          printf("trap1 y = %d\n",t1y);  
 		    printf("level = %d\n",level);
+          printf("Life ");
+          for(j=0;j<=life;j++)
+          {
+            printf("*");
+          }
+          printf("\n");
 
    		 user_input_key = _getch();
    		
@@ -66,19 +80,32 @@ int main()
 
          switch(user_input_key)
          {
-            case 75: ux--;if(ux<0) ux=640; break; /*Left*/
-            case 77: ux++;if(ux>640) ux=0; break; /*Right*/
-            case 72: uy--;if(uy<0) ux=480; break; /*Up*/
-            case 80: uy++;if(uy>480) ux=0; break; /*Down*/
-            case 27: printf("are you sure to exit ? y/n"); ans=getchar();
+            case 75: if(--ux<0) ux=640; break; /*Left*/                      
+            case 77: if(++ux>640) ux=0; break; /*Right*/
+            case 72: if(--uy<0) ux=480; break; /*Up*/
+            case 80: if(++uy>480) ux=0; break; /*Down*/
+            case 27: printf("are you sure to exit ? y/n"); 
+                     ans=getchar(); if(ans=='y'||ans=='Y') exit(0);
          }
 
 
+
+         if(ux==t1x && uy==t1y)
+         {
+            life=life-10;
+         }
+
+         if(life<=0)
+         {
+            printf("you are dead!");
+            exit(0);
+         }
 
    		if(ux==dx && uy==dy)
    		{
    			level++;
    		}
+
 
 
    	}while(user_input_key!=27);
