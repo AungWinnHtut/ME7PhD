@@ -52,8 +52,8 @@ int main()
 	dx=funRand(641);
 	dy=funRand(481);
 
-   t1x=funRand(641);
-   t1y=funRand(481);
+  t1x=funRand(641);
+  t1y=funRand(481);
 
 		
    
