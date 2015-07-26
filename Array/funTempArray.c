@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-int main()
+
+void funTempArray(int k)
 {
 	int i;
 	float tf[100];
@@ -8,7 +9,7 @@ int main()
 	FILE *fout;
 	fout =  fopen("temp.txt","w");
 	fprintf(fout," tf    - tc \n");
-	for(i=0;i<100;i++)
+	for(i=0;i<k;i++)
 	{
 		tf[i] = (i*100) + 1000; /*y=mx+c*/
 		tc[i] = (5 * (tf[i]-32)) /9;
@@ -17,5 +18,4 @@ int main()
 
 
 	fclose(fout);
-	return 0;
 }
